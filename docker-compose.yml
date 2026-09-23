@@ -1,0 +1,20 @@
+services:
+  # Azure Storage Emulator
+  azurite:
+    image: mcr.microsoft.com/azure-storage/azurite
+    container_name: azurite
+    ports:
+      - "10000:10000"   # Blob Storage
+      - "10001:10001"   # Queue Storage
+      - "10002:10002"   # Table Storage
+
+  # Your application
+  user-api:
+    build:
+      context: .
+      dockerfile: UserApi/Dockerfile
+    container_name: user-api
+    ports:
+      - "80:80"
+    depends_on:
+      - azurite

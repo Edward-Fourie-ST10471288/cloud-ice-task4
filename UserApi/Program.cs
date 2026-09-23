@@ -1,0 +1,6 @@
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/", () => Greeter.GetMessage());
+
+app.Run("http://0.0.0.0:80");
