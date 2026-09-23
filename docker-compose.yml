@@ -19,3 +19,4 @@ services:
     depends_on:
       - azurite
 # trigger pipeline
+# trigger pipeline2
